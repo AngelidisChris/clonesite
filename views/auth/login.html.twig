@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <script src="../resources/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+    <link href="../resources/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="../resources/js/login.js"></script>
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="../resources/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+<nav class="navbar navbar-fixed-top">
+    <div class="container navcontainer">
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="http://clonesite.test/public">
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section id="signin">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <div class="signin-form">
+                    <form class="form-signin" id="signupform" action="" method="POST">
+                        <h3 class="form-signin-heading">Είσοδος με αναγνωριστικό</h3>
+                        <label for="inputEmail">Αναγνωριστικό</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            <input type="text" placeholder="Αναγνωριστικό" id="uname" name="uname" class="form-control" value="{{ username }}" required autofocus>
+                            <div class="input-group-btn">
+                                <button type="button" id="remove" data-val="1" class="btn btn-default btn-md"> <span class="glyphicon glyphicon-remove"></span></button>
+                            </div>
+                        </div>
+                        <label for="inputPassword" >Κωδικός πρόσβασης</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </div>
+
+                            <input type="password" id="pwd" class="form-control" placeholder="Κωδικός πρόσβασης" value="{{ password }}" name="password">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default btn-md" id="showhide" type="button" data-val='1'><span id='eye' class="glyphicon glyphicon-eye-open"></span></button>
+                        </span>
+                        </div>
+                        <h5></h5>
+                        {% if name_error != '' %}
+
+                            <div class="alert alert-danger" id="errormsg">
+                                <span class="error">{{ name_error }}</span>
+                            </div>
+                        {% endif %}
+                        <button class="btn btn-lg btn-primary btn-block submit-btn" type="submit">Σύνδεση</button>
+                    </form>
+                </div>
+            </div>
+
+        </div> <!-- /container -->
+        <div class="row row-margin">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <h4>Δεν έχετε λογαριασμό; <a href="http://clonesite.test/public/auth/signup"> Εγγραφή</a>.</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="resources/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+<script src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function()
+    {
+        $("#showhide").click(function()
+        {
+            if ($(this).data('val') == "1")
+            {
+                $("#pwd").prop('type','text');
+                $("#eye").attr("class","glyphicon glyphicon-eye-close");
+                $(this).data('val','0');
+            }
+            else
+            {
+                $("#pwd").prop('type', 'password');
+                $("#eye").attr("class","glyphicon glyphicon-eye-open");
+                $(this).data('val','1');
+            }
+        });
+    });
+
+    $(document).ready(function()
+
+    {
+        $("#remove").click(function()
+        {
+            $("#uname").val('');
+        });
+
+    });
+
+</script>
+</body>
+</html>

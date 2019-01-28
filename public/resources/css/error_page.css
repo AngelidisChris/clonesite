@@ -1,0 +1,30 @@
+body {
+    background: #f4f4f4;
+}
+
+/*.navbar-nav > li > a, .navbar-brand {
+  padding-top:5px !important;
+  padding-bottom:0 !important;
+  height: 60px;
+  }*/
+
+.navbar {
+    background: white;
+    min-height: 70px !important;
+    box-shadow: 0 0 7px gray;
+}
+
+.navbar-brand {
+    background: url('../images/logo.png') center 8px/ contain no-repeat;
+    width: 110px;
+    min-height: 60px !important;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+}
+
+
+
+.error-template {position:absolute;left: 32%;top:50px;padding:40px 15px;text-align: center;color: #007FAD}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }
